@@ -488,7 +488,8 @@ void qMRMLNodeComboBox::renameCurrentNode()
     {
     return;
     }
-  node->SetName(newName.toLatin1());
+  node->SetName(newName.toAscii());
+
   emit currentNodeRenamed(newName);
 }
 
