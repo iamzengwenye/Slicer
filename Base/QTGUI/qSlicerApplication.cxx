@@ -22,7 +22,7 @@
 #include <QAction>
 #include <QDebug>
 #include <QMainWindow>
-
+#include <QApplication>
 #include "vtkSlicerConfigure.h" // For Slicer_USE_QtTesting
 
 // CTK includes
