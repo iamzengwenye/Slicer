@@ -40,6 +40,7 @@
 // QTGUI includes
 #include "qSlicerAbstractModule.h"
 #include "qSlicerApplication.h"
+#include "qSlicerApplicationHelper.h"
 #include "qSlicerCommandOptions.h"
 #include "qSlicerCoreApplication_p.h"
 #include "qSlicerIOManager.h"
@@ -167,6 +168,9 @@ void qSlicerApplicationPrivate::init()
   this->ToolTipTrapper = new ctkToolTipTrapper(q);
   this->ToolTipTrapper->setToolTipsTrapped(false);
   this->ToolTipTrapper->setToolTipsWordWrapped(true);
+
+  // We load the language selected for the application
+  qSlicerApplicationHelper::loadLanguage();
 
   //----------------------------------------------------------------------------
   // Settings Dialog
