@@ -25,6 +25,8 @@
 #include <QTimer>
 #include <QNetworkProxyFactory>
 
+//QTAPP includes
+#include "qSlicerApplicationHelper.h"
 // CTK includes
 #include <ctkErrorLogFDMessageHandler.h>
 #include <ctkErrorLogQtMessageHandler.h>
@@ -279,6 +281,8 @@ void qSlicerCoreApplicationPrivate::init()
     }
 
 #endif
+  // We load the language selected for the application
+  qSlicerApplicationHelper::loadLanguage();
 }
 
 //-----------------------------------------------------------------------------
