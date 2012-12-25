@@ -114,6 +114,7 @@ endif()
 # Additional Target libraries (QT libs already included)
 set(KIT_target_libraries
   SlicerBaseLogic
+  SlicerBaseQTAPP
   MRMLDisplayableManager
   CTKCore
   CTKImageProcessingITKCore
