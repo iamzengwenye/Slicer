@@ -281,8 +281,6 @@ void qSlicerCoreApplicationPrivate::init()
     }
 
 #endif
-  // We load the language selected for the application
-  qSlicerApplicationHelper::loadLanguage();
 }
 
 //-----------------------------------------------------------------------------
