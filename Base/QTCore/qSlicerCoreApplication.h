@@ -264,6 +264,10 @@ public:
   Q_INVOKABLE void setDICOMDatabase(ctkDICOMDatabase* dicomDatabase);
 #endif
 
+  // loadLanguage() method should be in qSlicerCoreApplication
+  loadLanguage();
+  
+  loadTranslations();
 
 public slots:
 
