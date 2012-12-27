@@ -132,56 +132,6 @@ void qSlicerApplicationHelper::setupModuleFactoryManager(qSlicerModuleFactoryMan
 }
 
 //----------------------------------------------------------------------------
-void qSlicerApplicationHelper::loadTranslations(const QString& dir)
-{
-  qSlicerApplication * app = qSlicerApplication::application();
-  Q_ASSERT(app);
-
-  QString localeFilter =
-      QString( QString("*") + app->settings()->value("language").toString());
-  localeFilter.resize(3);
-  localeFilter += QString(".qm");
-
-  QDir directory(dir);
-  QStringList qmFiles = directory.entryList(QStringList(localeFilter));
-
-  foreach(QString qmFile, qmFiles)
-    {
-    QTranslator* translator = new QTranslator();
-    QString qmFilePath = QString(dir + QString("/") + qmFile);
-
-    if(!translator->load(qmFilePath))
-      {
-      qDebug() << "The File " << qmFile << " hasn't been loaded in the translator";
-      return;
-      }
-    app->installTranslator(translator);
-    }
-}
-
-//----------------------------------------------------------------------------
-void qSlicerApplicationHelper::loadLanguage()
-{
-  qSlicerApplication * app = qSlicerApplication::application();
-  Q_ASSERT(app);
-
-  // we check if the application is installed or not.
-  if (app->isInstalled())
-    {
-    QString qmDir = QString(Slicer_QM_DIR);
-    Self::loadTranslations(qmDir);
-    }
-  else
-    {
-    QStringList qmDirs = QString(Slicer_QM_OUTPUT_DIRS).split(";");
-    foreach(QString qmDir, qmDirs)
-      {
-      Self::loadTranslations(qmDir);
-      }
-    }
-}
-
-//----------------------------------------------------------------------------
 void qSlicerApplicationHelper::showMRMLEventLoggerWidget()
 {
   qMRMLEventLoggerWidget* logger = new qMRMLEventLoggerWidget(0);

@@ -170,6 +170,10 @@ public:
 
   /// Return true is this instance of Slicer is running from an installed directory
   bool isInstalled()const;
+  
+  void loadLanguage();
+	
+  void loadTranslations(const QString& dir);
 
 #ifdef Slicer_USE_PYTHONQT
   /// Get python manager
